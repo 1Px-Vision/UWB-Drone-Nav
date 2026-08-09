@@ -1,8 +1,6 @@
 # ESP32-S3 + DWM3000 UWB Drone Localization System
 
-Real-time indoor and GPS-denied drone localization using **ESP32-S3**, **DWM3000 Ultra-Wideband (UWB)** ranging, and **ESP-NOW 2.4 GHz peer-to-peer communication**.
-
-The system uses two fixed UWB anchors and one mobile tag mounted on a drone. The DWM3000 devices calculate the distances between the drone and each anchor, while ESP-NOW provides a low-latency wireless network for exchanging anchor IDs, tag IDs, distance measurements, synchronization data, system status, and estimated position.
+Real-time indoor and GPS-denied drone localization using **ESP32-S3**, **DWM3000 Ultra-Wideband (UWB)** ranging, and **ESP-NOW 2.4 GHz peer-to-peer communication**. The system uses two fixed UWB anchors and one mobile tag mounted on a drone. The DWM3000 devices calculate the distances between the drone and each anchor, while ESP-NOW provides a low-latency wireless network for exchanging anchor IDs, tag IDs, distance measurements, synchronization data, system status, and estimated position.
 
 ---
 
