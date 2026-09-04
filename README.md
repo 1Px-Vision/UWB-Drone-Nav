@@ -86,6 +86,8 @@ The system is intended for:
 
 ---
 
+![](https://github.com/1Px-Vision/UWB-Drone-Nav/blob/main/Anchor_Target.jpg)
+
 # Communication Architecture
 
 The project uses two different wireless technologies.
