@@ -612,6 +612,8 @@ The dashboard can provide:
 
 Example mapping view:
 
+![](https://github.com/1Px-Vision/UWB-Drone-Nav/blob/main/Anchor_Lab.jpg)
+
 ```text
 Y
 ^
