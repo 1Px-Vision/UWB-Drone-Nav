@@ -94,7 +94,7 @@ The project uses two different wireless technologies.
 
 ## UWB
 
-The **DWM3000** modules are responsible for precise distance measurement.
+The **DWM3000** modules handle precise distance measurement.
 
 Typical ranging sequence:
 
@@ -202,7 +202,7 @@ or
 ESP32-S3-WROOM-1U
 ```
 
-The `WROOM-1U` version can be useful when an external 2.4 GHz antenna is required.
+The `WROOM-1U` version is useful when you need an external 2.4 GHz antenna.
 
 Advantages of the ESP32-S3 include:
 
@@ -611,6 +611,16 @@ The dashboard can provide:
 * CSV export
 
 Example mapping view:
+```
+python UWB_DWM3000_dual_v6.py \
+    --anchor1-port /dev/ttyACM0 \
+    --anchor2-port /dev/ttyACM1 \
+    --baud 115200 \
+    --mode SS-TWR \
+    --formula standard \
+    --auto-connect \
+    --auto-start
+```
 
 ![](https://github.com/1Px-Vision/UWB-Drone-Nav/blob/main/Anchor_Lab.jpg)
 
