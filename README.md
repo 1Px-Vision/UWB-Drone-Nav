@@ -1045,6 +1045,44 @@ A battery-powered target (Tag 10) performs DS-TWR ranging with Anchor 1 and Anch
 
 Anchor 1 and Anchor 2 form an ESP-NOW ad hoc link without a Wi-Fi router. Each anchor measures its distance to the battery-powered target using UWB DS-TWR. Anchor 2 sends its timing records wirelessly to Anchor 1, which forwards measurements from both anchors to the PC over USB serial.
 
+### ESP32 Ad hoc features
+
+Ad hoc simplifies peer discovery and data exchange between ESP32 devices using their built-in Wi‑Fi radios. A device can act as a server or client by changing one configuration parameter.
+
+* **Automatic peer discovery:** Devices in the same group register without manually entering peer MAC addresses.
+* **Separate group identifiers:** An advertising UUID handles discovery, while a second UUID identifies group traffic.
+* **Bidirectional data exchange:** Registered peers can send and receive application data.
+* **Optional encryption:** Configure a pre-shared key and peer key when encrypted communication is required.
+* **Heartbeat monitoring:** Peers that stop responding are removed and can be discovered again when they resume advertising.
+* **Peer status display:** Inspect the current role, channel, and registered peers.
+* **Configurable payload size:** Set `ESPNOW_DATA_SIZE` to fit the application and the ESP-NOW packet limit.
+
+For the two-anchor UWB system, **Anchor 1 is the ESP-NOW server and PC gateway**. **Anchor 2 is a battery-powered ESP32 client** that forwards its UWB timing records to Anchor 1.
+
+#### Packet format
+
+| Field         |                     Size | Purpose                                 |
+| ------------- | -----------------------: | --------------------------------------- |
+| Group UUID    |                 37 bytes | Identifies group traffic                |
+| Role          |                   1 byte | Server or client                        |
+| Wi‑Fi channel |                   1 byte | ESP-NOW channel                         |
+| Security flag |                   1 byte | Indicates whether encryption is enabled |
+| Command       |                   1 byte | Registration, heartbeat, or data        |
+| Data          | `ESPNOW_DATA_SIZE` bytes | Application payload                     |
+
+#### Defaults used by the two-anchor firmware
+
+| Setting               | Value                                           |
+| --------------------- | ----------------------------------------------- |
+| `ESPNOW_WIFI_CHANNEL` | `4`                                             |
+| `ADV_GROUP_ID`        | `906b868f-7e9b-4c21-b587-70c8d5fadfee`          |
+| `GROUP_ID`            | `73f8e3bb-aab2-4808-8efe-c061c88e48c2`          |
+| `HEARTBEAT_TIMEOUT`   | `5000` ms                                       |
+| `HEARTBEAT_INTERVAL`  | `1000` ms                                       |
+| `BROADCAST_INTERVAL`  | `1000` ms                                       |
+| `ESPNOW_DATA_SIZE`    | **200 bytes** in the supplied two-anchor helper |
+
+Change the default group identifiers when deploying another network nearby. The UUIDs separate groups but **do not encrypt or authenticate data**; enable ESP-NOW encryption if those protections are needed. Keep the complete packet within the maximum payload reported by the installed ESP32 core. The two-anchor firmware uses a 200-byte data region, rather than the original helper’s 1,000-byte default.
 ---
 
 The proposed system can be used for:
