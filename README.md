@@ -1082,7 +1082,7 @@ For the two-anchor UWB system, **Anchor 1 is the ESP-NOW server and PC gateway**
 | `BROADCAST_INTERVAL`  | `1000` ms                                       |
 | `ESPNOW_DATA_SIZE`    | **200 bytes** in the supplied two-anchor helper |
 
-Change the default group identifiers when deploying another network nearby. The UUIDs separate groups but **do not encrypt or authenticate data**; enable ESP-NOW encryption if those protections are needed. Keep the complete packet within the maximum payload reported by the installed ESP32 core. The two-anchor firmware uses a 200-byte data region, rather than the original helper’s 1,000-byte default.
+Change the default group identifiers when deploying another network nearby. The UUIDs separate groups but **do not encrypt or authenticate data**; enable ESP32 encryption if those protections are needed. Keep the complete packet within the maximum payload reported by the installed ESP32 core. The two-anchor firmware uses a 200-byte data region, rather than the original helper’s 1,000-byte default.
 ---
 
 The proposed system can be used for:
