@@ -1035,6 +1035,17 @@ UKF
 
 # Applications
 
+
+## Two-anchor UWB system
+
+A battery-powered target (Tag 10) performs DS-TWR ranging with Anchor 1 and Anchor 2. Anchor 2 sends its timing measurements to Anchor 1 over ESP-NOW. Anchor 1 acts as the gateway and forwards measurements from both anchors to the PC through USB serial. The PC identifies each measurement by anchor_id and calculates the ranges.
+
+### Ad hoc network between anchors
+
+Anchor 1 and Anchor 2 form an ESP-NOW ad hoc link without a Wi-Fi router. Each anchor measures its distance to the battery-powered target using UWB DS-TWR. Anchor 2 sends its timing records wirelessly to Anchor 1, which forwards measurements from both anchors to the PC over USB serial.
+
+
+
 The proposed system can be used for:
 
 ### Search and Rescue
