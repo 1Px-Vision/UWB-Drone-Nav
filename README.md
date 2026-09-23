@@ -901,7 +901,7 @@ Time-of-flight ranging
 Distance estimation
 ```
 
-The ESP-NOW RSSI should not be used as the primary precision ranging mechanism.
+Do not use ESP-NOW RSSI as the primary precision ranging mechanism.
 
 ---
 
@@ -930,7 +930,7 @@ Avoid positioning antennas close to:
 * carbon-fiber structures
 * large metallic objects
 
-Antenna orientation should also be considered during localization experiments.
+Also consider antenna orientation during localization experiments.
 
 ---
 
@@ -1035,6 +1035,7 @@ UKF
 
 # Applications
 
+![](https://github.com/1Px-Vision/UWB-Drone-Nav/blob/main/UWB_Outdoor.jpg)
 
 ## Two-anchor UWB system (Outdoor)
 
